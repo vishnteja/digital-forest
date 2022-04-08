@@ -3,8 +3,8 @@ from bs4 import BeautifulSoup as soup
 import urllib
 
 # Replace these values with your own API Keys
-ELSEVIER_API_KEY = '9a5e20f17a90961fdea380dd185f1465'
-WILEY_API_KEY = '103fc970-c3d8-464e-862f-950e306f3260'
+ELSEVIER_API_KEY = 'USE_YOUR_OWN_API_KEY'
+WILEY_API_KEY = 'USE_YOUR_OWN_API_KEY'
 
 def download_from_elsevier(root_path, output_filename, response_type, api_key, doi):
     """Download articles from elsevier journals
