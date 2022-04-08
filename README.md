@@ -3,39 +3,48 @@ Repository for digital forest project
 
 List down all the components
 
-1. Downloader Component - responsible for downloading the full text articles from a csv. 
+## 1. Downloader Component 
+Responsible for downloading the full text articles from a csv. 
 
-Goal
+### Goal
 ----
-Input - CSV with article names, DOIs, publisher names and so on.
-Output - List of Full Text articles. (These articles can be either xml, html or pdf).
 
-Strategy for downloading articles
-a. If we can download the xml/html through APIs or scraping the web, we would choose this option.
-b. If xml/html is not possible, then we would try to download the PDF files. 
+> Input - CSV with article names, DOIs, publisher names and so on.
 
+> Output - List of Full Text articles. (These articles can be either xml, html or pdf).
 
-2. Data Processing Component - responsible for extracting the textual information from the downloaded articles. 
+Refer to download.py and download.ipynb for examples.
+
+Strategy for downloading articles 
+
+1. If we can download the xml/html through APIs or scraping the web, we would choose this option.
+
+1. If xml/html is not possible, then we would try to download the PDF files. 
+
+### Downloading from different publishers
+1. Elsevier - xml files, API is provided by publisher
+1. MDPI - html files, this data has been web scraped
+1. Wiley - 
+1. Taylor & Francis - No access with purdue credentials, some articles are open access (IJRS)
+1. Springer - 
+1. IEEE - 
+
+## 2. Data Processing Component 
+Responsible for extracting the textual information from the downloaded articles. 
+
+### Goal
+----
+> Input - Article (xml, html)
+
+> Output - Text (string)
+
+The conversion is different for every article publisher. We have to consider every case
+1. Different file format 
+1. Different article foramtting 
+1. Different non text patterns
 
 PDFtoXML conversion module
 > Note: PDF files are converted to xml. 
-
-Goal
-----
-Input - Article (xml, html)
-Output - Text(string)
-
-The conversion is different for every article publisher. 
-a. Different file format 
-b. Different article foramtting 
-c. Different non text patterns
-
-Elsevier - xml files, API is provided by publisher
-MDPI - html files, this data has been web scraped
-Wiley - 
-Taylor & Francis - No access with purdue credentials, some articles are open access
-Springer - 
-IEEE - 
 
 To do for each publisher.
 1. Get the article files
@@ -55,10 +64,11 @@ def process_elsevier(article_xml):
         result_text += extract_text_from_section(section)
     return result.
 
-3. Data preprocessing for ML. 
+## 3. Data preprocessing for ML. 
 
-Input - raw full text from each article
-Output - simplified text 
+> Input - raw full text from each article
+
+> Output - simplified text 
 
 Strategy
 1. Convert all words to lowercase characters
@@ -68,10 +78,11 @@ Optional
 4. Lemmatization (play playing -> play)
 
 
-4. Generate custom word embeddings for all the words in the corpus
+## 4. Generate custom word embeddings for all the words in the corpus
 
-Input - corpus (list of all articles )
-Output - Word vector for each word in the corpus.
+> Input - corpus (list of all articles )
+
+> Output - Word vector for each word in the corpus.
 
 Steps
 1. Generate dictionary from the corpus
@@ -79,7 +90,7 @@ Steps
 3. A ML model that is finetuned for new words.
 
 
-5. Analyze the word embedding 
+## 5. Analyze the word embedding 
 Study the embeddings and decide if the model learned useful information. 
 
 
