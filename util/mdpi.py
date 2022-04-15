@@ -22,7 +22,7 @@ def extract_text_from_html(mdpi_file_name):
     # Remove \n characters
     clean_text = article_text.replace('\n', ' ')
     # Remove special characters and numbers
-    clean_text = re.sub('[^A-Za-z\-]', ' ', clean_text)
+    clean_text = re.sub('[^.,A-Za-z\-]', ' ', clean_text)
     # Convert all text to lower
     clean_text = clean_text.lower()
     
