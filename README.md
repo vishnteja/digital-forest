@@ -84,6 +84,8 @@ Optional
 
 > Output - Word vector for each word in the corpus.
 
+Example python notebook - https://colab.research.google.com/drive/1B24afRkZf9irUTSbDceCeysb1q0jnhOb?usp=sharing
+
 Steps
 1. Generate dictionary from the corpus
 2. Use glove pretrained embeddings
