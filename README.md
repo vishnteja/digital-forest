@@ -19,7 +19,7 @@ Strategy for downloading articles
 
 1. If we can download the xml/html through APIs or scraping the web, we would choose this option.
 
-1. If xml/html is not possible, then we would try to download the PDF files. 
+1. If xml/html is not possible, then we would try to download the PDF files. In this case, we would use a JAVA library called CERMINE (https://github.com/CeON/CERMINE) to convert PDF files to cermxml file before further analyzing with beautiful soup.
 
 ### Downloading from different publishers
 1. Elsevier - xml files, API is provided by publisher
